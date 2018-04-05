@@ -1,11 +1,25 @@
+//initialize requirements
 require("dotenv").config();
 
-//import data from keys.js
+//requirements for packages
+var request = require('request');
+var Spotify = require('node-spotify-api');
+var Twitter = require('twitter');
+var inquirer = require('inquirer');
+var fs = require("fs");
 
+// pass keys in .env file to js for use
+var keys = require('./keys.js');
+
+//import data from keys.js
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
 
+//variables for arguments using process.argv
+var command = process.argv[2];
+var input = process.argv[3];
 
+//opening line runs when application opened
 
 
 // `my-tweets`
