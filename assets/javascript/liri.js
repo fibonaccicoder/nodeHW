@@ -20,6 +20,14 @@ var command = process.argv[2];
 var input = process.argv[3];
 
 //opening line runs when application opened
+function liriIntro() {
+    inquirer.prompt([{
+        type: "rawlist",
+        message: "\nHello! I'm Liri.\n I am here to assist you with obtaining information on movies, songs, and twitter.\n Please start by choosing a command that you would like to carry out from the options below.\n",
+        choices: ["my-tweets", "spotify-this-song", "movie-this", "do-what-is-says"]
+    };])
+};
+
 
 
 // `my-tweets`
