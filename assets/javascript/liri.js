@@ -78,9 +78,8 @@ function spotifyThis() {
     console.log("\nSong: " + spotifyInfo.name);
     console.log("Artist: " + spotifyInfo.artists[0].name);
     console.log("Album: " + spotifyInfo.album.name);
-    console.log("Preview here: " + )
-
-}
+    console.log("Preview here: " + spotifyInfo.link);
+};
 
 //node liri.js spotify-this-song 'song'
 //display artist, song name, preview link, album that song is from, default "the sign" by ace of base 
@@ -92,18 +91,27 @@ function spotifyThis() {
 
 function searchOmdb() {
 
+    var omdbUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=" + omdb.key;
 
+    request(omdbUrl, function (error, response, body) {
+        if (!error && response.statusCode === 200) {
+            var info = JSON.parse(body);
 
-    console.log("\n" + data.Title);
-    console.log("------------------------");
-    console.log("Release Year: " + data.Year);
-    console.log("IMDB Rating: " + data.imdbRating);
-    console.log("Rotten Tomatoes Rating: " + data.Ratings[1].Value);
-    console.log("Film Country of Origin: " + data.Country);
-    console.log("Language: " + data.Language);
-    console.log("Plot: " + data.Plot);
-    console.log("Actors: " + data.Actors);
+            console.log(data);
+
+            console.log("\n" + data.Title);
+            console.log("------------------------");
+            console.log("Release Year: " + data.Year);
+            console.log("IMDB Rating: " + data.imdbRating);
+            console.log("Rotten Tomatoes Rating: " + data.Ratings[1].Value);
+            console.log("Film Country of Origin: " + data.Country);
+            console.log("Language: " + data.Language);
+            console.log("Plot: " + data.Plot);
+            console.log("Actors: " + data.Actors);
+        }
+    });
 }
+
 
 
 // 4. `node liri.js do-what-it-says`
